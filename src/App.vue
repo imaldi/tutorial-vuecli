@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     
-    <Header></Header>
+    <Header v-on:ganti-hero="gantiHero"></Header>
     <main>
       <Hero :hero='hero'></Hero>
     </main>
