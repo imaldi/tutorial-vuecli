@@ -3,6 +3,7 @@
     <header>
       <img alt="Vue logo" src="./assets/logo.png" />
       <h3>Mobile Legends Bang Bang</h3>
+      <button v-on:click="gantiHero">Ganti Hero</button>
     </header>
 
     <main>
@@ -35,8 +36,10 @@ export default {
     };
   },
   methods: {
-    testtt: function () {
-      "";
+    gantiHero: function () {
+      this.hero.nama = "Zilong"
+      this.hero.type = "Fighter"
+      this.hero.gambar = "zilong.jpg"
     },
   },
   computed: {
