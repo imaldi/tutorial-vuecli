@@ -3,13 +3,7 @@
     
     <Header></Header>
     <main>
-      <ul>
-        <li>
-          <img :src="gambar">
-          <p>{{ hero.nama }}</p>
-          <p>Jenis Hero: <em>{{ hero.type }}</em></p>
-        </li>
-      </ul>
+      <Hero :hero='hero'></Hero>
     </main>
     <Footer></Footer>
     
@@ -19,11 +13,14 @@
 <script>
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
+import Hero from './components/Hero.vue'
+
 export default {
   name: "App",
   components: {
     Header,
     Footer,
+    Hero
   },
   data: function () {
     return {
@@ -41,11 +38,7 @@ export default {
       this.hero.gambar = "zilong.jpg"
     },
   },
-  computed: {
-    gambar: function(){
-      return require('./assets/hero/' + this.hero.gambar)
-    }
-  }
+  
 };
 </script>
 
