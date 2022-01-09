@@ -1,50 +1,52 @@
 <template>
   <div id="app">
-    
     <Header v-on:ganti-hero="gantiHero"></Header>
     <main>
-      <Hero :hero='hero1'></Hero>
-      <Hero :hero='hero2'></Hero>
+      <div v-for="item in heroes" :key="item.id">
+        <Hero v-bind:hero="item"></Hero>
+      </div>
     </main>
     <Footer></Footer>
-    
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Footer from './components/Footer.vue'
-import Hero from './components/Hero.vue'
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
+import Hero from "./components/Hero.vue";
 
 export default {
   name: "App",
   components: {
     Header,
     Footer,
-    Hero
+    Hero,
   },
   data: function () {
     return {
-      hero1: {
-        nama: "Aurora",
-        type: "Mage",
-        gambar: "aurora.jpg",
-      },
-      hero2: {
-        nama: "Zilong",
-        type: "Fighter",
-        gambar: "zilong.jpg",
-      },
+      heroes: [
+        {
+          id: 1,
+          nama: "Aurora",
+          type: "Mage",
+          gambar: "aurora.jpg",
+        },
+        {
+          id: 2,
+          nama: "Zilong",
+          type: "Fighter",
+          gambar: "zilong.jpg",
+        },
+      ],
     };
   },
   methods: {
     gantiHero: function () {
-      this.hero.nama = "Zilong"
-      this.hero.type = "Fighter"
-      this.hero.gambar = "zilong.jpg"
+      this.hero.nama = "Zilong";
+      this.hero.type = "Fighter";
+      this.hero.gambar = "zilong.jpg";
     },
   },
-  
 };
 </script>
 
@@ -60,6 +62,6 @@ export default {
 
 main img {
   width: 80px;
-  border: 1px solid #ccc
+  border: 1px solid #ccc;
 }
 </style>
