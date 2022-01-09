@@ -3,10 +3,14 @@
     <Header v-on:ganti-hero="gantiHero"></Header>
     <main>
       <p>Hero-hero Terbaik Minggu Ini</p>
-      <article>
+      <!-- <img   :src="gambar"/> -->
+      <article v-if="!selectedHero">
         <div v-for="(item, index) in heroes" :key="item.id">
           <Hero :hero="item" :index="index"></Hero>
         </div>
+      </article>
+      <article v-else>
+          <Hero :hero="selectedHero" :index="0"></Hero>
       </article>
     </main>
     <Footer></Footer>
@@ -36,39 +40,39 @@ export default {
         },
         {
           id: 2,
-          nama: "Zilong",
-          type: "Fighter",
-          gambar: "zilong.jpg",
+          nama: "Akai",
+          type: "Tank",
+          gambar: "akai.jpg",
         },
         {
           id: 3,
-          nama: "Aurora",
-          type: "Mage",
-          gambar: "aurora.jpg",
+          nama: "Bruno",
+          type: "Marksman",
+          gambar: "bruno.jpg",
         },
         {
           id: 4,
-          nama: "Zilong",
+          nama: "Gatotkaca",
           type: "Fighter",
-          gambar: "zilong.jpg",
+          gambar: "gatotkaca.png",
         },
         {
           id: 5,
-          nama: "Aurora",
-          type: "Mage",
-          gambar: "aurora.jpg",
+          nama: "Hilda",
+          type: "Fighter",
+          gambar: "hilda.jpg",
         },
         {
           id: 6,
-          nama: "Zilong",
-          type: "Fighter",
-          gambar: "zilong.jpg",
+          nama: "Lancelot",
+          type: "Assasin",
+          gambar: "lancelot.jpg",
         },
         {
           id: 7,
-          nama: "Aurora",
-          type: "Mage",
-          gambar: "aurora.jpg",
+          nama: "Lapu lapu",
+          type: "Figter",
+          gambar: "lapulapu.jpg",
         },{
           id: 8,
           nama: "Zilong",
@@ -76,15 +80,23 @@ export default {
           gambar: "zilong.jpg",
         },
       ],
+      selectedHero: '',
     };
   },
   methods: {
     gantiHero: function () {
-      this.hero.nama = "Zilong";
-      this.hero.type = "Fighter";
-      this.hero.gambar = "zilong.jpg";
+      this.selectedHero = this.randomHero()
+
     },
+    randomHero(){
+      return this.heroes[Math.floor(Math.random() * this.heroes.length)]
+    }
   },
+  // computed: {
+  //   gambar: function () {
+  //     return require("./assets/hero/" + this.selectedHero);
+  //   },
+  // },
 };
 </script>
 
