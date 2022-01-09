@@ -19,5 +19,7 @@ export default {
 </script>
 
 <style scoped>
-
+    p {
+        color: salmon
+    }
 </style>

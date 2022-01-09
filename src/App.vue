@@ -3,7 +3,8 @@
     
     <Header v-on:ganti-hero="gantiHero"></Header>
     <main>
-      <Hero :hero='hero'></Hero>
+      <Hero :hero='hero1'></Hero>
+      <Hero :hero='hero2'></Hero>
     </main>
     <Footer></Footer>
     
@@ -24,10 +25,15 @@ export default {
   },
   data: function () {
     return {
-      hero: {
+      hero1: {
         nama: "Aurora",
         type: "Mage",
         gambar: "aurora.jpg",
+      },
+      hero2: {
+        nama: "Zilong",
+        type: "Fighter",
+        gambar: "zilong.jpg",
       },
     };
   },
