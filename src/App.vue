@@ -1,19 +1,50 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <header>
+      <img alt="Vue logo" src="./assets/logo.png" />
+      <h3>Mobile Legends Bang Bang</h3>
+    </header>
+
+    <main>
+      <ul>
+        <li>
+          <img :src="gambar">
+          <p>{{ hero.nama }}</p>
+          <p>Jenis Hero: <em>{{ hero.type }}</em></p>
+        </li>
+      </ul>
+    </main>
+
+    <footer>
+      <p>&copy; 2022 - aldi majid</p>
+    </footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: "App",
+  components: {},
+  data: function () {
+    return {
+      hero: {
+        nama: "Aurora",
+        type: "Mage",
+        gambar: "aurora.jpg",
+      },
+    };
+  },
+  methods: {
+    testtt: function () {
+      "";
+    },
+  },
+  computed: {
+    gambar: function(){
+      return require('./assets/hero/' + this.hero.gambar)
+    }
   }
-}
+};
 </script>
 
 <style>
@@ -21,8 +52,13 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
   margin-top: 60px;
+}
+
+main img {
+  width: 80px;
+  border: 1px solid #ccc
 }
 </style>
